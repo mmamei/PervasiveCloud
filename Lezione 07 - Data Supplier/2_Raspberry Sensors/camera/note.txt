@@ -1,0 +1,6 @@
+
+# Download opencv wheel
+https://pypi.org/project/opencv-python/#files
+
+# install package via wheel
+pip install file.whl

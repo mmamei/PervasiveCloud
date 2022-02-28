@@ -1,0 +1,5 @@
+dispatch:
+    - url: "mamei-api.appspot.com/"
+      service: default
+    - url: "*/api/*"
+      service: api

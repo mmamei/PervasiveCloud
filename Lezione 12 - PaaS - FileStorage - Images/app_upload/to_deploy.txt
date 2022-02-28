@@ -1,0 +1,19 @@
+gcloud projects create upload-mamei
+gcloud config set project upload-mamei
+
+# must enable billing
+
+# files written in tmp dir are temporariliy stored in GCP
+# it can be a staging area for storgin files in google cloud storage
+
+---------------
+
+pip install google-cloud-storage
+
+------------------
+
+gcloud iam service-accounts create client
+gcloud projects add-iam-policy-binding upload-mamei --member "serviceAccount:client@upload-mamei.iam.gserviceaccount.com" --role "roles/owner"
+gcloud iam service-accounts keys create credentials.json --iam-account client@upload-mamei.iam.gserviceaccount.com
+
+GOOGLE_APPLICATION_CREDENTIALS=credentials.json

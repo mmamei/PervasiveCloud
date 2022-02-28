@@ -1,0 +1,12 @@
+gcloud components update
+gcloud projects list
+gcloud projects create [PROJECT_ID]
+gcloud config set project [PROJECT_ID]
+
+# occorre abilitare cloud build api dalla console di google cloud
+
+# l'applicazione si deve chiamare main.py
+
+gcloud app deploy
+
+gcloud projects delete [PROJECT_ID]

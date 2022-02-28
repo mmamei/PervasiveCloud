@@ -1,0 +1,22 @@
+gcloud projects create iot-mamei
+gcloud config set project iot-mamei
+
+
+# Enable IoT E Pub Sub APIs for the project
+
+# Create service account for coreiot and pubsub
+
+
+# this is where openssl in windows is
+C:\Program Files\Git\usr\bin\openssl.exe
+
+
+C:\"Program Files"\Git\usr\bin\openssl req -x509 -nodes -newkey rsa:2048 -keyout rsa_private.pem -out rsa_cert.pem -subj "/CN=unused"
+
+
+gcloud pubsub subscriptions create ^
+    projects/iot-mamei1/subscriptions/my-subscription ^
+    --topic=projects/iot-mamei1/topics/telem1
+
+
+gcloud pubsub subscriptions pull --auto-ack projects/iot-mamei/subscriptions/my-subscription

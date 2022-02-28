@@ -1,0 +1,21 @@
+
+# the function must be in main.py
+# must enable billing
+# must enable cloud build
+
+gcloud functions deploy hello_http --region europe-west1 --runtime python37 --trigger-http --allow-unauthenticated
+
+# the commad returns information about the deployed function.
+# In particular the url of the function:
+
+httpsTrigger:
+  url: https://europe-west1-functions-mamei.cloudfunctions.net/hello_http
+
+# I can call the function from the command line
+# the backslash before " is probably only needed in windows
+
+gcloud functions call hello_http --region europe-west1 --data {\"name\":\"Marco\"}
+
+# I can call from python code from request
+
+# Let's see also the function interface from Google Cloud Platform

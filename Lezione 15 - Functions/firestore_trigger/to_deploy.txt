@@ -1,0 +1,20 @@
+
+# the function must be in main.py
+# must enable billing
+# must enable cloud build
+# create firestore database
+
+
+gcloud iam service-accounts create client
+gcloud projects add-iam-policy-binding functions-mamei --member "serviceAccount:client@functions-mamei.iam.gserviceaccount.com" --role "roles/owner"
+gcloud iam service-accounts keys create credentials.json --iam-account client@functions-mamei.iam.gserviceaccount.com
+
+GOOGLE_APPLICATION_CREDENTIALS=credentials.json
+
+
+# ^ is multiline command in windows.
+# \ is multiline command in linux
+
+gcloud functions deploy hello_firestore --region europe-west1 --runtime python37 ^
+--trigger-event "providers/cloud.firestore/eventTypes/document.update" ^
+--trigger-resource "projects/functions-mamei/databases/(default)/documents/persone/{id}"

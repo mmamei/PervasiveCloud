@@ -1,0 +1,3 @@
+I have to deploy the two apps in the directories separately
+Then
+gcloud app deploy dispatch.yaml

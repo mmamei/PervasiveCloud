@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      function initSensor() {
+          sensor = new LinearAccelerationSensor({ frequency: 60 });
+          sensor.onreading = function() {
+            i = sensor.x.toFixed(2)
+            j = sensor.y.toFixed(2)
+            k = sensor.z.toFixed(2)
+            $("#output").html(i+"<br>"+j+"<br>"+k+"<br>")
+          }
+          sensor.onerror = function(event) {
+            if (event.error.name == 'NotReadableError') {
+              console.log('Sensor is not available.');
+            }
+          };
+          sensor.start();
+          console.log('started')
+      }
+    </script>
+
+</head>
+<body>
+<button onclick="initSensor()">Start</button>
+<div id="output"></div>
+</body>
+</html>

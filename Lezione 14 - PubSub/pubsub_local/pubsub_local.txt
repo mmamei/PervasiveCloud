@@ -1,0 +1,14 @@
+
+# let's create a project to use pubsub
+gcloud projects create [PROJECT_ID]
+gcloud config set core/project [PROJECT-ID]
+
+# let's enable cloud pubsub API fom the GCP console
+
+# create credentials (probably not required in this example!)
+gcloud iam service-accounts create client
+gcloud projects add-iam-policy-binding pubsub-mamei --member "serviceAccount:client@pubsub-mamei.iam.gserviceaccount.com" --role "roles/owner"
+gcloud iam service-accounts keys create credentials.json --iam-account client@pubsub-mamei.iam.gserviceaccount.com
+GOOGLE_APPLICATION_CREDENTIALS=credentials.json
+
+

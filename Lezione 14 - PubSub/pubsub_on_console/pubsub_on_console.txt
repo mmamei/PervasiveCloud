@@ -1,0 +1,35 @@
+
+# let's create a project to use pubsub
+gcloud projects create [PROJECT_ID]
+gcloud config set core/project [PROJECT-ID]
+
+# let's enable cloud pubsub API fom the GCP console
+
+
+# create credentials (probably not required in this example!)
+#gcloud iam service-accounts create client
+#gcloud projects add-iam-policy-binding pubsub-mamei --member "serviceAccount:client@pubsub-mamei.iam.gserviceaccount.com" --role "roles/owner"
+#gcloud iam service-accounts keys create credentials.json --iam-account client@pubsub-mamei.iam.gserviceaccount.com
+#GOOGLE_APPLICATION_CREDENTIALS=credentials.json
+
+
+
+# commands to create/delete/list/describe topics
+# It is possible to send messages only AFTER the topic has been created
+gcloud pubsub topics create test
+gcloud pubsub topics delete test
+gcloud pubsub topics list
+gcloud pubsub topics describe test
+
+# command to send messages
+# after the command it prints message id
+gcloud pubsub topics publish test --attribute=[lista coppie chiave valore] --message="messaggio"
+gcloud pubsub topics publish test --attribute=key1=val1,key2=val2 --message="test di pubblicazione"
+# command to create a subscription
+# test_sub is the name of the subscription
+# --topic test is the actual topic to which we subscribe
+gcloud pubsub subscriptions create test_sub --topic test
+
+# command to pll all the messages from a subscription
+# get the messages sent AFTER the subscription
+gcloud pubsub subscriptions pull test_sub

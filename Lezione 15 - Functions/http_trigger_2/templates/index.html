@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{ title }} - Microblog</title>
+    </head>
+    <body>
+    <a href="static/form.html">go to form</a>
+    {% if user %}
+        <h1>Hello, {{ user.username }}!</h1>
+    {% else %}
+        <h1>No user set</h1>
+    {% endif %}
+
+    <ul>
+    {% for x in list %}
+    <li>{{ x }}</li>
+    {% endfor %}
+    </ul>
+
+    </body>
+</html>

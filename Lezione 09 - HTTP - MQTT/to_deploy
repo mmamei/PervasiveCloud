@@ -1,0 +1,38 @@
+
+
+# install on linux (compute engine) ##################################################################################
+# https://www.cloud.it/tutorial/come-installare-e-mettere-sicurezza-mosquitto-su-ubuntu-20-04.aspx
+
+sudo apt update -y && sudo apt install mosquitto mosquitto-clients -y
+
+# check status
+
+sudo systemctl status mosquitto
+
+#start manually
+
+sudo systemctl start mosquitto
+
+#autostart
+
+sudo systemctl enable mosquitto
+
+# configure user and password
+
+# add user
+
+sudo mosquitto_passwd -c /etc/mosquitto/passwd username
+
+#configure mosquitto to require authentication
+
+sudo nano /etc/mosquitto/conf.d/default.conf
+
+allow_anonymous false
+password_file /etc/mosquitto/passwd
+
+# restart
+
+sudo systemctl restart mosquitto
+
+
+

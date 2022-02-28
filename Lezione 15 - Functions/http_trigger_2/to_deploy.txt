@@ -1,0 +1,12 @@
+
+# the function must be in main.py
+# must enable billing
+# must enable cloud build
+
+gcloud functions deploy index --region europe-west1 --runtime python37 --trigger-http --allow-unauthenticated
+
+# the commad returns information about the deployed function.
+# In particular the url of the function:
+
+httpsTrigger:
+  url: https://europe-west1-functions-mamei.cloudfunctions.net/index

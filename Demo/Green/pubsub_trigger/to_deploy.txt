@@ -1,0 +1,12 @@
+
+# the function must be in main.py
+# must enable billing
+# must enable cloud build
+
+gcloud functions deploy save_telemetry --region europe-west1 --runtime python37 --trigger-topic projects/iot-mamei1/topics/telem1
+
+# send an event via console to test
+gcloud pubsub topics publish test-topic --attribute=key1=val1,key2=val2 --message="test di pubblicazione"
+
+# beware that pubsub execution mode is 'at least once', so it can happen that the function
+# is executed multiple times because of a single event
