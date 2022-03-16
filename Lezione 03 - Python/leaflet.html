@@ -13,20 +13,10 @@
 <script>
 	var map = L.map('mapid').setView([51.505, -0.09], 13);
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-	L.marker([51.5, -0.09]).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
 
-	var pointA = new L.LatLng(51.5, -0.09);
-    var pointB = new L.LatLng(51.4, -0.09);
-    var pointC = new L.LatLng(51.4, -0.19);
-    var pointList = [pointA, pointB, pointC];
 
-    var firstpolyline = new L.Polyline(pointList, {
-    color: 'red',
-    weight: 3,
-    opacity: 0.5,
-    smoothFactor: 1
-    });
-    firstpolyline.addTo(map);
+
+    new L.Polyline([new L.LatLng(51.5, -0.09), new L.LatLng(51.4, -0.09), new L.LatLng(51.4, -0.19)], {color: 'red',weight: 3,opacity: 0.5,smoothFactor: 1}).addTo(map)
 
 </script>
 

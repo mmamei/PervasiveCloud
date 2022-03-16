@@ -1,0 +1,18 @@
+# chat with BotFather to create a new bot
+# obtain the bot_token
+
+# Exercise 1
+# Photo Sharing Bot
+# you can send the bot a photo and a description
+# you can ask the bot a photo matching some keywords
+# extra. The bot can show all the photo matching a keyword
+
+# Exercise 2
+# Data Bot
+# you can send the bot a (data) measure about a specific city
+# For example: Reggio Emilia, 34
+# Then: Reggio Emilia, 45
+# Then: Modena, 10
+# ....
+# You can ask a graph for the data being recorded.
+# Look the matplotlib code in Lesson 04
