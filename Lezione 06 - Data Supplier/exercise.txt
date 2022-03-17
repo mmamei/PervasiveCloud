@@ -1,0 +1,15 @@
+
+
+# Review Flask working
+# Check IP and netwroking
+
+# Create a Surveillance Application
+
+# The application use a smartphone (or the PC) to collect picture every 60 seconds
+# All the pictures are saved in files
+# A web page allows to see the last picture
+
+# The application collects acceleration mesures
+# data is stored in a list
+# a web page allows to see a graph of the stored data
+(use google chart, create a template, return the rendered string instead of saving to a file)

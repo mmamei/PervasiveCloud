@@ -13,9 +13,6 @@
 <script>
 	var map = L.map('mapid').setView([51.505, -0.09], 13);
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-
-
-
     new L.Polyline([new L.LatLng(51.5, -0.09), new L.LatLng(51.4, -0.09), new L.LatLng(51.4, -0.19)], {color: 'red',weight: 3,opacity: 0.5,smoothFactor: 1}).addTo(map)
 
 </script>
