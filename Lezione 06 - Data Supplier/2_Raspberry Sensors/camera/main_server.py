@@ -34,9 +34,9 @@ def upload():
     cv.imwrite(f'tmp/test_{current_time}.png', img)
     return 'saved'
 
-'''
+
 # download from https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml
-#face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
+face_cascade = cv.CascadeClassifier('haarcascade_frontalface_default.xml')
 @app.route('/face',methods=['POST'])
 def face():
     data = request.data.decode('utf-8')
@@ -56,7 +56,7 @@ def face():
     current_time = now.strftime("%H_%M_%S")
     cv.imwrite(f'img/test_{current_time}.png', img)
     return 'saved'
-'''
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True, ssl_context='adhoc')
 

@@ -29,8 +29,8 @@ while True:
         _, encimg = cv.imencode(".png ", frame)
         img_byte = base64.b64encode(encimg).decode("utf-8")
         img_json = json.dumps({'image': img_byte}).encode('utf-8')
-        #response = requests.post('https://192.168.0.103:5000/upload', data=img_json, verify=False)
-        response = requests.post('https://192.168.0.103:5000/face', data=img_json, verify=False)
+        #response = requests.post('https://localhost:8080/upload', data=img_json, verify=False)
+        response = requests.post('https://localhost:8080/face', data=img_json, verify=False)
         last_sent = current_time
 
 
