@@ -1,0 +1,14 @@
+
+# Use the ssh client in Compute Engine
+
+# From Google Cloud Shell (remote)
+gcloud compute ssh instance-1
+
+# From Google Cloud SDK Shell (local)
+gcloud projects list
+gcloud config set project [PROJECT-ID]
+gcloud compute ssh marco_mamei@instance-1 --zone=europe-west6-b
+
+# Directly from ssh
+# https://cloud.google.com/compute/docs/instances/connecting-to-instance#linux-e-osx
+ssh -i google_compute_engine marco_mamei@34.65.128.6

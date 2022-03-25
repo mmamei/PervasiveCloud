@@ -1,0 +1,8 @@
+ls
+cd [dir]
+cat [file]
+ssh [ip]
+sudo apt-get install [nome pacchetto]
+nohup [comando] &
+nohup venv/bin/python3 main.py &
+ps
