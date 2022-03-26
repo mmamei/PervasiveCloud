@@ -2,7 +2,13 @@ ls
 cd [dir]
 cat [file]
 ssh [ip]
+mkdir [dir]
+mv src dest
+cp src dest
 sudo apt-get install [nome pacchetto]
 nohup [comando] &
 nohup venv/bin/python3 main.py &
 ps
+ps -A
+sudo kill -9 [numero processo]
+

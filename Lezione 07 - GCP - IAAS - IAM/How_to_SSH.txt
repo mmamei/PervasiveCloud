@@ -4,6 +4,8 @@
 # From Google Cloud Shell (remote)
 gcloud compute ssh instance-1
 
+# Install Google Cloud SDK
+https://cloud.google.com/sdk/docs/install
 # From Google Cloud SDK Shell (local)
 gcloud projects list
 gcloud config set project [PROJECT-ID]

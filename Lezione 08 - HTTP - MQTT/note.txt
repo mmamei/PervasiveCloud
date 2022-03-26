@@ -1,1 +1,0 @@
-installare i server delle lezioni su raspberry, etc. su GCP Compute Engine
