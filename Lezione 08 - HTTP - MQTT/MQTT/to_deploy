@@ -1,4 +1,9 @@
 
+# Open (MQTT) port on compute engine
+
+https://www.cloudsavvyit.com/4932/how-to-open-firewall-ports-on-a-gcp-compute-engine-instance/
+
+
 
 # install on linux (compute engine) ##################################################################################
 # https://www.cloud.it/tutorial/come-installare-e-mettere-sicurezza-mosquitto-su-ubuntu-20-04.aspx
