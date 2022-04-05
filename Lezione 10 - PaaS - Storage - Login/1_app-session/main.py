@@ -1,14 +1,16 @@
 
 from flask import Flask,redirect, request, session
-
+from secret import secret_key
 
 usersdb = {
     'marco':'mamei'
 }
 
-
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'ciao'
+
+# In order to use session in flask you need to set the secret key in your application settings.
+# secret key is a random key used to encrypt your cookies and save send them to the browser.
+app.config['SECRET_KEY'] = secret_key
 @app.route('/')
 def root():
     if 'loggedin' not in session or session["loggedin"]==False:
