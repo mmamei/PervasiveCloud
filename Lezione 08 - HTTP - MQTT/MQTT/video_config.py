@@ -1,6 +1,6 @@
 
 
-broker_ip = "127.0.0.1"
+broker_ip = "35.240.19.57"
 #broker_ip = "34.140.94.202"
 broker_port = 1883
 default_topic = "video/cam1"

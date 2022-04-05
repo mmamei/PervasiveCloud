@@ -27,11 +27,11 @@ def on_message(client, userdata, message):
 
 # Configuration variables
 client_id = "clientId0002-Consumer"
-broker_ip = "127.0.0.1"
-#broker_ip = "34.140.94.202"
+#broker_ip = "127.0.0.1"
+broker_ip = "35.240.19.57"
 broker_port = 1883
 
-default_topic = "sensor/temperature"
+default_topic = "/sensor/temperature"
 
 # Create a new MQTT Client
 mqtt_client = mqtt.Client(client_id)

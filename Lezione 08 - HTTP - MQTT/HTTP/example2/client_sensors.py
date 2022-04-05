@@ -1,6 +1,6 @@
 from requests import get, post
 
-base_url = 'http://localhost:80'
+base_url = 'http://34.140.248.158:80'
 
 
 for i in range(2):

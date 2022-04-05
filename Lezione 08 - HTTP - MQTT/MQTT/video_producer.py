@@ -48,7 +48,7 @@ while True:
     print((time.time() - now) * 1000)
     mqtt_client.publish(default_topic, message,qos=0)
 
-    time.sleep(0.1)
+    time.sleep(0.5)
 
 
 # After the loop release the cap object

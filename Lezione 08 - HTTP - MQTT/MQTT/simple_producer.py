@@ -19,12 +19,12 @@ def on_connect(client, userdata, flags, rc):
 # Configuration variables
 client_id = "clientId0001-Producer"
 
-broker_ip = "127.0.0.1"
-#broker_ip = "34.140.94.202"
+#broker_ip = "127.0.0.1"
+broker_ip = "35.240.19.57"
 broker_port = 1883
 
-default_topic = "sensor/temperature"
-message_limit = 1000
+default_topic = "/sensor/temperature"
+
 
 mqtt_client = mqtt.Client(client_id)
 mqtt_client.on_connect = on_connect
@@ -40,7 +40,7 @@ mqtt_client.loop_start()
 
 # MQTT Paho Publish method with all the available parameters
 # mqtt_client.publish(topic, payload=None, qos=0, retain=False)
-
+message_limit = 1000
 for message_id in range(message_limit):
     payload_string = f'message {message_id}'
     infot = mqtt_client.publish(default_topic, payload_string)

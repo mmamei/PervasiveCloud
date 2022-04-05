@@ -23,7 +23,7 @@ def add_data(s):
 @app.route('/sensors/<s>',methods=['GET'])
 def get_data(s):
     if s in data:
-        return json.dumps(data[s])
+        return json.dumps(data[s]),200
     else:
         return 'sensor not found',404
 

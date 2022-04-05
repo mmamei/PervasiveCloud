@@ -3,6 +3,7 @@
 
 https://www.cloudsavvyit.com/4932/how-to-open-firewall-ports-on-a-gcp-compute-engine-instance/
 
+# ! Attenzione, la rete del Tamburini blocca il traffico in uscita sulla porta MQTT!!!
 
 
 # install on linux (compute engine) ##################################################################################

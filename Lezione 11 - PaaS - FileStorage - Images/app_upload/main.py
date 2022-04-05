@@ -14,7 +14,7 @@ def main():
 @app.route('/upload',methods=['GET','POST'])
 def upload():
     if request.method == 'GET':
-        return redirect(url_for('static', filename='form.html'))
+        return redirect(url_for('static', filename='login.html'))
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
