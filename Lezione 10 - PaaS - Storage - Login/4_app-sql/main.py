@@ -14,7 +14,7 @@ def sql():
     config = {
         'user': user,
         'password': password,
-        'host': '35.195.98.200',
+        'host': '34.79.175.127',
         'client_flags': [ClientFlag.SSL],
         'ssl_ca': 'secret/server-ca.pem',
         'ssl_cert': 'secret/client-cert.pem',

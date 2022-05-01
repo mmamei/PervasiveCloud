@@ -1,7 +1,7 @@
 from requests import get, post
 
 #base_url = 'http://localost:8080'
-base_url = 'https://mamei-api.appspot.com'
+base_url = 'https://testlez12.appspot.com'
 #base_url = 'https://api-dot-mamei-api.appspot.com'
 
 #r = post(f'{host}/api/f1')

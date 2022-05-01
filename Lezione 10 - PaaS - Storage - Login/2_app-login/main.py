@@ -22,26 +22,15 @@ class User(UserMixin):
         super().__init__()
         self.id = username
         self.username = username
+        self.par = {}
 
 app = Flask(__name__)
-
+app.config['SECRET_KEY'] = secret_key
 
 # The login manager contains the code that lets your application and Flask-Login work together,
 # such as how to load a user from an ID, where to send users when they need to log in, and the like.
 login = LoginManager(app)
 login.login_view = '/static/login.html'
-
-app.config['SECRET_KEY'] = secret_key
-
-@app.route('/')
-def root():
-    return redirect('/static/index.html')
-
-
-@app.route('/main')
-@login_required
-def index():
-    return 'Hi '+current_user.username
 
 
 usersdb = {
@@ -53,6 +42,22 @@ def load_user(username):
     if username in usersdb:
         return User(username)
     return None
+
+
+
+@app.route('/')
+def root():
+    return redirect('/static/index.html')
+
+@app.route('/main')
+@login_required
+def index():
+    return 'Hi '+current_user.username
+
+@app.route('/main2')
+@login_required
+def index2():
+    return 'Hi2 '+current_user.username
 
 @app.route('/login', methods=['POST'])
 def login():

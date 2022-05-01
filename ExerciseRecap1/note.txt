@@ -1,0 +1,6 @@
+
+1. crea un client che legge il file invia al server i dati come se arrivassero in tempo reale (tramite http)
+
+2. il server legge questi file e li inseriesci in un database (firestore)
+
+3. il server presenta un applicazione web per utenti loggati per vedere il grafico dei valori
