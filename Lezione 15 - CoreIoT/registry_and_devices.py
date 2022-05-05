@@ -71,7 +71,7 @@ def create_device(service_account_json, project_id, cloud_region, registry_id,de
 
 
 if __name__ == '__main__':
-    service_account_json='credentials.json'
+    service_account_json='credentials2.json'
     project_id='iot-mamei1'
     cloud_region='europe-west1'
     pubsub_topic='telem1'

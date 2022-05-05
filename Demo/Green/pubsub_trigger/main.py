@@ -11,7 +11,7 @@ def save_telemetry(event, context):
         project_id = 'iot-mamei1'
         dataset_id = 'dataset1'
         table_id = 'green1'
-        #client = bigquery.Client.from_service_account_json('credentials.json')
+        #client = bigquery.Client.from_service_account_json('credentials2.json')
         client = bigquery.Client()
         rows_to_insert = [data]
         table_full_id = f'{project_id}.{dataset_id}.{table_id}'

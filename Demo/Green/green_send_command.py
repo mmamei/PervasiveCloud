@@ -8,7 +8,7 @@ device_id = 'sensor1'
 
 
 print("Sending command to device")
-service_account_json='credentials.json'
+service_account_json='credentials2.json'
 client = iot_v1.DeviceManagerClient.from_service_account_json(service_account_json)
 device_path = str(f'projects/{project_id}/locations/{cloud_region}/registries/{registry_id}/devices/{device_id}')
 print(device_path)

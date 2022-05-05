@@ -1,5 +1,5 @@
 from google.cloud import storage
-client = storage.Client.from_service_account_json('credentials.json')
+client = storage.Client.from_service_account_json('credentials2.json')
 #bucket = client.create_bucket('upload-mamei-1')
 bucket = client.bucket('upload-mamei-1')
 source_file_name = 'test.jpg'

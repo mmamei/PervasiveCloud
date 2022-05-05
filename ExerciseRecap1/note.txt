@@ -1,6 +1,37 @@
 
 1. crea un client che legge il file invia al server i dati come se arrivassero in tempo reale (tramite http)
 
-2. il server legge questi file e li inseriesci in un database (firestore)
+HTTP Requests
 
-3. il server presenta un applicazione web per utenti loggati per vedere il grafico dei valori
+
+2. il server legge questi file e li inseriesci in un database (firestore)
+3. il server presenta un applicazione web per utenti loggati per vedere il grafico dei valori (tramite google chart)
+
+- IaaS --> nuova VM
+- PaaS --> AppEngine (*)
+
+- SQL
+- No-SQL (firestore) (*)
+
+- Flask - Google Chart (*)
+
+REST
+
+- /sensors/sensor1
+HTTP POST -- > inviare un nuovo dato al sistema
+HTTP GET -- > per leggere i dati
+
+
+
+============
+
+1. Server Flask che riceve richieste post e le salva su firestore
+riceve una richieste get e visualizza tutte le informazioni
+
+Client fa una richieste
+
+============
+
+
+
+
