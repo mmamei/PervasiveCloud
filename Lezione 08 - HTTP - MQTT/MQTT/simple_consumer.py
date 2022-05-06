@@ -28,7 +28,7 @@ def on_message(client, userdata, message):
 # Configuration variables
 client_id = "clientId0002-Consumer"
 #broker_ip = "127.0.0.1"
-broker_ip = "35.240.19.57"
+broker_ip = "34.159.67.93"
 broker_port = 1883
 
 default_topic = "/sensor/temperature"
@@ -41,8 +41,8 @@ mqtt_client.on_message = on_message
 mqtt_client.on_connect = on_connect
 
 # Connect to the target MQTT Broker
-
-mqtt_client.username_pw_set(username="pcloud", password="pcloud2022")
+print('connect',broker_ip, broker_port)
+mqtt_client.username_pw_set(username="marco", password="mamei")
 mqtt_client.connect(broker_ip, broker_port)
 
 # Blocking call that processes network traffic, dispatches callbacks and

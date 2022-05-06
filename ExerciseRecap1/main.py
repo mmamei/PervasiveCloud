@@ -1,20 +1,44 @@
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
+from flask_login import LoginManager, current_user, login_user, logout_user, login_required, UserMixin
 from google.cloud import firestore
-from secret import secret
-app = Flask(__name__)
+from secret import secret, secret_key, usersdb
 import json
+
+class User(UserMixin):
+    def __init__(self, username):
+        super().__init__()
+        self.id = username
+        self.username = username
+        self.par = {}
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = secret_key
+login = LoginManager(app)
+login.login_view = '/static/login.html'
+
+
+
+
+@login.user_loader
+def load_user(username):
+    if username in usersdb:
+        return User(username)
+    return None
+
+
+
 
 @app.route('/',methods=['GET'])
 def main():
     return 'ok'
 
-@app.route('/sensors/sensor1',methods=['GET'])
-def read_all():
+@app.route('/sensors/<sensor>',methods=['GET'])
+def read_all(sensor):
     db = firestore.Client.from_service_account_json('credentials.json')
     #db = firestore.Client()
     data = []
-    for doc in db.collection('sensor1').stream():
+    for doc in db.collection(sensor).stream():
         x = doc.to_dict()
         data.append([x['time'].split(' ')[0],float(x['value'])])
     return json.dumps(data)
@@ -32,9 +56,10 @@ def soglia(s):
     return json.dumps(data)
 
 
-@app.route('/graph',methods=['GET'])
-def graph():
-    data = json.loads(read_all())
+@app.route('/graph/<sensor>',methods=['GET'])
+@login_required
+def graph(sensor):
+    data = json.loads(read_all(sensor))
     data.insert(0,['Time', 'Pm10'])
     return render_template('graph.html',data=data,soglia=json.loads(soglia(80)))
 
@@ -51,6 +76,26 @@ def save_data():
         return 'ok', 200
     else:
         return '', 401
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('/'))
+    username = request.values['u']
+    password = request.values['p']
+    if username in usersdb and password == usersdb[username]:
+        login_user(User(username), remember=True)
+        next_page = request.args.get('next')
+        if not next_page:
+            next_page = '/'
+        return redirect(next_page)
+    return redirect('/static/login.html')
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect('/')
 
 
 if __name__ == '__main__':

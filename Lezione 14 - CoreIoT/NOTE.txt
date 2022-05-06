@@ -1,0 +1,4 @@
+
+Core IoT è a tutti gli effetti un sistema per integrare MQTT/HTTP generati da un sensore con PubSub.
+Il sensore invia delle richieste HTTP o MQTT come protocolli standard e CoreIOT converte questi in eventi PubSub.
+In più ovviamente gestisce autenticazione e sicurezza nella comunicazione

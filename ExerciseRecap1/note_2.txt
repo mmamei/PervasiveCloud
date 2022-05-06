@@ -1,0 +1,8 @@
+
+1. crea un secondo client che legge il file invia al server i dati come se arrivassero in tempo reale, tramite MQTT
+- configura un broker su un istanza compute engine
+- configura un ricevitore sull'istanza compute engine che salva i dati sul firestore
+
+2. permetti di selezionare il sensore di cui vogliamo vedere i dati
+
+3. crea un chatbot che stampa gli utltimi dati raccolti

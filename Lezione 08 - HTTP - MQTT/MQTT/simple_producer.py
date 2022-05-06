@@ -20,7 +20,7 @@ def on_connect(client, userdata, flags, rc):
 client_id = "clientId0001-Producer"
 
 #broker_ip = "127.0.0.1"
-broker_ip = "35.240.19.57"
+broker_ip = "34.159.67.93"
 broker_port = 1883
 
 default_topic = "/sensor/temperature"
@@ -32,7 +32,7 @@ mqtt_client.on_connect = on_connect
 
 print("Connecting to "+ broker_ip + " port: " + str(broker_port))
 #mqtt_client.tls_set()
-mqtt_client.username_pw_set(username="pcloud", password="pcloud2022")
+mqtt_client.username_pw_set(username="marco", password="mamei")
 mqtt_client.connect(broker_ip, broker_port)
 
 
