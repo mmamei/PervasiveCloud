@@ -8,9 +8,6 @@ import time
 # Configuration variables
 client_id = "sensor2"
 
-
-
-
 mqtt_client = mqtt.Client(client_id)
 print("Connecting to "+ broker_ip + " port: " + str(broker_port))
 mqtt_client.username_pw_set(username=mqtt_user, password=mqtt_password)

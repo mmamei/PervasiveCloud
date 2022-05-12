@@ -4,6 +4,7 @@ from flask_login import LoginManager, current_user, login_user, logout_user, log
 from google.cloud import firestore
 from secret import secret, secret_key, usersdb
 import json
+from base64 import b64decode
 
 class User(UserMixin):
     def __init__(self, username):
@@ -96,6 +97,18 @@ def login():
 def logout():
     logout_user()
     return redirect('/')
+
+
+@app.route('/pubsub/receive',methods=['POST'])
+def pubsub_push():
+    print('ricevuto payload',flush=True)
+    dict = json.loads(request.data.decode('utf-8'))
+    print(dict,flush=True)
+    msg = b64decode(dict['message']['data']).decode('utf-8')
+    print(msg)
+    return 'OK',200
+
+
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-gcloud pubsub subscriptions create push_sub_v2 --topic test-topic --push-endpoint https://pubsub-mamei.appspot.com/pubsub/push
+gcloud pubsub subscriptions create push_sub_v2 --topic test-topic --push-endpoint https://testlez12.appspot.com/pubsub/push
 
 # per vedere il log degli ultimi messaggi e vedere che funziona
 # altrimenti devo memorizzare i messaggi in un db

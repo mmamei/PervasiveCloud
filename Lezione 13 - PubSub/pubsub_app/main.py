@@ -3,6 +3,7 @@ from flask import Flask,request
 from google.cloud import pubsub_v1
 from json import loads
 from base64 import b64decode
+from secret import project_id,topic_name
 
 app = Flask(__name__)
 
@@ -12,8 +13,6 @@ def main():
 
 @app.route('/pubsub/write',methods=['GET'])
 def pubsub_write():
-    project_id = 'pubsub-mamei'
-    topic_name = 'test-topic'
     publisher = pubsub_v1.PublisherClient()
     topic_path = publisher.topic_path(project_id, topic_name)
     r = publisher.publish(topic_path, b'message 1', key1='val1', key2='val2')
