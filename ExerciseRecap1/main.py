@@ -101,11 +101,13 @@ def logout():
 
 @app.route('/pubsub/receive',methods=['POST'])
 def pubsub_push():
-    print('ricevuto payload',flush=True)
     dict = json.loads(request.data.decode('utf-8'))
-    print(dict,flush=True)
-    msg = b64decode(dict['message']['data']).decode('utf-8')
+    print(dict)
+    msg = json.loads(dict['message']['attributes']['payload'])
     print(msg)
+    # {'sensor': client_id, 'time': t, 'pm10': pm10})
+    db = firestore.Client.from_service_account_json('credentials.json')
+    db.collection(msg['sensor']).document(msg['time']).set({'time': msg['time'], 'value': msg['pm10']})
     return 'OK',200
 
 

@@ -1,0 +1,2 @@
+
+gcloud pubsub subscriptions create app_pm10 --topic pm10 --push-endpoint https://testlez11.appspot.com/pubsub/receive
