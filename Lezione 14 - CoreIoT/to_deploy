@@ -1,3 +1,7 @@
+
+# https://cloud.google.com/iot/docs/samples/iot-patch-es?hl=it#iot_patch_es-python
+
+
 gcloud projects create iot-mamei
 gcloud config set project iot-mamei
 
