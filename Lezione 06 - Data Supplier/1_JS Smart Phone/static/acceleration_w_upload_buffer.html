@@ -5,22 +5,29 @@
     <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
+      data = []
       function initSensor() {
-          sensor = new LinearAccelerationSensor({ frequency: 1 });
+          sensor = new LinearAccelerationSensor({ frequency: 1 })
           sensor.onreading = function() {
             i = sensor.x.toFixed(2)
             j = sensor.y.toFixed(2)
             k = sensor.z.toFixed(2)
-            $("#output").html(i+"<br>"+j+"<br>"+k+"<br>")
-            $.post("/upload_data",{'data':JSON},
-                function(data,status){
-                })
+            $("#output").html(">"+i+"<br>"+j+"<br>"+k+"<br> Length = "+data.length)
+            data.push([i,j,k])
+            if (data.length >= 10) {
+                console.log(data)
+                $("#output").html(data.length)
+                $.post("/upload_data_buffer",{'data':JSON.stringify(data)},
+                    function(d,status){
+                    })
+                data = []
+            }
           }
           sensor.onerror = function(event) {
             if (event.error.name == 'NotReadableError') {
               console.log('Sensor is not available.');
             }
-          };
+          }
           sensor.start();
           console.log('started')
       }

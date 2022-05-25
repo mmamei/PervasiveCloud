@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      function initSensor() {
+           url = 'https://europe-west1-jssensors.cloudfunctions.net/save_data'
+           dati = {'time':'21-5-2022 14:39:31','value':[45,45]}
+           $.post(url,dati,
+                function(data,status){
+                    console.log('ok')
+                })
+      }
+    </script>
+
+</head>
+<body>
+<button onclick="initSensor()">Start</button>
+<div id="output"></div>
+</body>
+</html>

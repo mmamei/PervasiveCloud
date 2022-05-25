@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
 from datetime import datetime
+import json
 
 
 # requires pyopenssl
@@ -11,6 +12,12 @@ app = Flask(__name__)
 @app.route('/',methods=['GET'])
 def main():
     return redirect(url_for('static', filename='index.html'))
+
+@app.route('/upload_data_buffer',methods=['POST'])
+def upload_data_buffer():
+    #print(request.form)
+    print(json.loads(request.values['data']))
+    return 'saved'
 
 @app.route('/upload_data',methods=['POST'])
 def upload_data():
