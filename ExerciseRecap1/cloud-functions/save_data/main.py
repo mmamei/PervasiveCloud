@@ -3,7 +3,7 @@ def save_data(request):
     import json
     if request.method == 'OPTIONS':
         print('------ options')
-        # Allows GET requests from any origin with the Content-Type
+        # Allows GET and POST requests from any origin with the Content-Type
         # header and caches preflight response for an 3600s
         headers = {
             'Access-Control-Allow-Origin': '*',
