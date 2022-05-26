@@ -10,10 +10,11 @@ gcloud config set project iot-mamei
 
 # Create service account for coreiot and pubsub
 
+# https://cloud.google.com/iot/docs/how-tos/credentials/keys
+
 
 # this is where openssl in windows is
 C:\Program Files\Git\usr\bin\openssl.exe
-
 
 C:\"Program Files"\Git\usr\bin\openssl req -x509 -nodes -newkey rsa:2048 -keyout rsa_private.pem -out rsa_cert.pem -subj "/CN=unused"
 
