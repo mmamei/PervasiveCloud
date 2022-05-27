@@ -32,11 +32,13 @@ def create_table(project_id,dataset_id,table_id):
 
 def insert(project_id,dataset_id,table_id):
     client = bigquery.Client.from_service_account_json('credentials.json')
+    table_full_id = f'{project_id}.{dataset_id}.{table_id}'
+
     rows_to_insert = [
     {'sensor':'sensor1','value':3.4,'datetime':'2021-11-17 15:32:00'}, # DATETIME	A string in the form "YYYY-MM-DD [HH:MM:SS]"
     {'sensor':'sensor1','value':3.5,'datetime':'2021-11-17 15:33:00'},
     ]
-    table_full_id = f'{project_id}.{dataset_id}.{table_id}'
+
     errors = client.insert_rows_json(table_full_id, rows_to_insert)  # Make an API request.
     if errors == []:
         print("New rows have been added.")
@@ -87,8 +89,23 @@ def insert3(project_id,dataset_id,table_id):
                 print("Encountered errors while inserting rows: {}".format(errors))
 
 
+def query():
+    query = f'SELECT * FROM jssensors.test1.table2 LIMIT 100'
+    client = bigquery.Client.from_service_account_json('credentials.json')
+    query_job = client.query(query)
+    for row in query_job:
+        #print(row)
+        # Row values can be accessed by field name or index.
+        print(f'name={row[0]} datetime={row["datetime"]}')
+
+
 
 if __name__ == '__main__':
-    #create_dataset('iot-mamei','test1','europe-west1')
-    #create_table('iot-mamei','test1','table2')
-    insert3('iot-mamei', 'test1', 'table2')
+    project_id = 'jssensors'
+    region = 'europe-west1'
+    db_id = 'test1'
+    table = 'table2'
+    #create_dataset(project_id,db_id,region)
+    #create_table(project_id,db_id,table)
+    #insert3(project_id, db_id, table)
+    query()
