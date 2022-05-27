@@ -79,8 +79,6 @@ def insert3(project_id,dataset_id,table_id):
             v = 60 -  0.5*i + random.gauss(0,2)
             if i == 50:
                 v += 100
-
-
             rows = [{'sensor': s['id'], 'lat': s['lat'], 'lon': s['lon'], 'value': v, 'datetime': dt.strftime('%Y-%m-%d %H:%M:%S')}]
             errors = client.insert_rows_json(table_full_id, rows)  # Make an API request.
             if errors == []:
