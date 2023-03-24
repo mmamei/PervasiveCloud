@@ -1,12 +1,13 @@
 from requests import get, post
+import time
 
-base_url = 'http://34.140.248.158:80'
+base_url = 'http://localhost:80'
 
+sensor = 's2'
 
-for i in range(2):
-    r = post(f'{base_url}/sensors/s1',data={'val': i})
-
-for i in range(2):
-    r = post(f'{base_url}/sensors/s2',data={'val': i})
+for i in range(1000):
+    print(sensor,'invio....')
+    r = post(f'{base_url}/sensors/{sensor}',data={'val': i})
+    time.sleep(5)
 
 print('done')

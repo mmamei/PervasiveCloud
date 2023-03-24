@@ -8,7 +8,7 @@ data = {}
 
 @app.route('/sensors',methods=['GET'])
 def main():
-    return json.dumps(list(data.keys()))
+    return json.dumps(list(data.keys())), 200
 
 
 @app.route('/sensors/<s>',methods=['POST'])
@@ -18,6 +18,7 @@ def add_data(s):
         data[s].append(val)
     else:
         data[s] = [val]
+    print(data)
     return 'ok',200
 
 @app.route('/sensors/<s>',methods=['GET'])
