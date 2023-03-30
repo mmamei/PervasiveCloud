@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href=https://stitches.hyperyolo.com/output.css rel="stylesheet">
+    <link rel="stylesheet" href=https://use.fontawesome.com/releases/v5.6.3/css/all.css integrity=sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/ crossorigin="anonymous">
+    <title>Stitches</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable({{data|safe}});
+
+        var options = {
+          title: '{{sensor}}',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+        $.getJSON('data.json', function(data) {
+          data2 = google.visualization.arrayToDataTable(data)
+          var chart = new google.visualization.AreaChart(document.getElementById('chart_div2'));
+          chart.draw(data2, options);
+
+          var chart = new google.visualization.AreaChart(document.getElementById('chart_div3'));
+          chart.draw(data2, options);
+        })
+
+      }
+
+      setTimeout(function(){
+        window.location.reload();
+      }, 5000);
+
+    </script>
+
+
+  </head>
+  <body><nav class="font-sans bg-white text-center flex justify-between my-4 mx-auto container overflow-hidden">
+  <a href="/" class="block text-left">
+    <img src="https://stitches.hyperyolo.com/images/logo.png" class="h-10 sm:h-10 rounded-full" alt="logo">
+  </a>
+  <ul class="text-sm text-gray-700 list-none p-0 flex items-center">
+    <li><a href="#" class="inline-block py-2 px-3 text-gray-900 hover:text-gray-700 no-underline">Products</a></li>
+    <li><a href="#" class="inline-block py-2 px-3 text-gray-900 hover:text-gray-700 no-underline">Pricing</a></li>
+    <li class="pr-2"><a href="#"
+        class="inline-block py-2 px-3 text-gray-900 hover:text-gray-700 no-underline">FAQs</a></li>
+    <li class="pl-2 border-l"><a href="#"
+        class="inline-block py-2 px-3 text-gray-900 hover:text-gray-700 no-underline">Log In</a></li>
+    <button class="bg-black hover:bg-text-gray-800 text-white ml-4 py-2 px-3">
+      Sign Up
+    </button>
+  </ul>
+</nav>
+
+  <section class="bg-white py-4 font-sans">
+
+  <div class="container max-w-xl m-auto flex flex-wrap items-center justify-start">
+
+    <div class="w-full md:w-1/1 lg:w-1/1 flex flex-col mb-8 px-3">
+      <div class="overflow-hidden bg-white rounded-lg shadow hover:shadow-raised hover:translateY-2px transition">
+      <div id="chart_div" style="width: 100%; height: 500px;"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+   <section class="bg-white py-4 font-sans">
+
+  <div class="container max-w-xl m-auto flex flex-wrap items-center justify-start">
+
+    <div class="w-full md:w-1/2 lg:w-1/2 flex flex-col mb-8 px-3">
+      <div class="overflow-hidden bg-white rounded-lg shadow hover:shadow-raised hover:translateY-2px transition">
+        <div id="chart_div2" style="width: 100%; height: 500px;"></div>
+      </div>
+    </div>
+
+    <div class="w-full md:w-1/2 lg:w-1/2 flex flex-col mb-8 px-3">
+      <div class="overflow-hidden bg-white rounded-lg shadow hover:shadow-raised hover:translateY-2px transition">
+        <div id="chart_div3" style="width: 100%; height: 500px;"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+  <footer class="font-sans bg-black text-white py-8 px-4">
+  <div class="mx-auto max-w-xl overflow-hidden flex justify-between items-center">
+    <ul class="text-sm text-gray-700 list-none p-0 flex items-center">
+      <li> <a href="/" class="block mr-4 w-32">
+          <img src="https://stitches.hyperyolo.com/images/logo-white.png" class="" alt="logo">
+        </a></li>
+      <li><a href="#" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline">Product</a></li>
+      <li><a href="#" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline">Company</a></li>
+      <li><a href="#" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline">FAQs</a></li>
+      <li><a href="#" class="inline-block py-2 px-3 text-gray-500 hover:text-gray-400 no-underline">About Us</a></li>
+    </ul>
+    <p class="inline-block py-2 px-3 text-gray-700 text-xs"> ©2019 Hyperyolo. All rights reserved.</p>
+  </div>
+</footer></body>
+</html>

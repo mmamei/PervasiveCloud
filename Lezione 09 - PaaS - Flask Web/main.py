@@ -6,9 +6,15 @@ app = Flask(__name__)
 @app.route('/',methods=['GET'])
 def main():
     #return 'ciao marco'
-    user = None #{'username': 'Marco'}
+    user = {'username': 'Marco'}
     list = [1,2,3,4,5]
     return render_template('index.html', title='Home', user=user, list=list)
+
+# http form
+@app.route('/form')
+def root():
+    return redirect(url_for('static', filename='login.html'))
+
 
 # parameters in the url
 @app.route('/urlpar/<par>',methods=['GET'])
@@ -25,10 +31,6 @@ def getpar():
     return render_template('index.html', title='Home', user=user, list=[])
 
 
-# http form
-@app.route('/form')
-def root():
-    return redirect(url_for('static', filename='login.html'))
 
 
 if __name__ == '__main__':
