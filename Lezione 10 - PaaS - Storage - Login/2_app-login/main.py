@@ -15,7 +15,9 @@ from secret import secret_key
 # -- has an is_anonymous() method that returns True if the current user is an anonymous user
 # --has a get_id() method which, given a User instance, returns the unique ID for that object
 # UserMixin class provides the implementation of this properties.
-# Its the reason you can call for example is_authenticated to check if login credentials provide is correct or not instead of having to write a method to do that yourself.
+# Its the reason you can call for example is_authenticated to check
+# if login credentials provide is correct or not instead of having to write a
+# method to do that yourself.
 
 class User(UserMixin):
     def __init__(self, username):

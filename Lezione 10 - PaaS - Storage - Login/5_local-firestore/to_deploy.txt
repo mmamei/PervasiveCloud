@@ -23,4 +23,5 @@ gcloud iam service-accounts create client
 gcloud projects add-iam-policy-binding firestore-mamei-1 --member "serviceAccount:client@firestore-mamei-1.iam.gserviceaccount.com" --role "roles/owner"
 gcloud iam service-accounts keys create credentials.json --iam-account client@firestore-mamei-1.iam.gserviceaccount.com
 
+
 gcloud projects delete [PROJECT_ID]
