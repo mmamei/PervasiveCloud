@@ -82,5 +82,5 @@ if __name__ == '__main__':
     create_topic(service_account_json, project_id, pubsub_topic)
 
     device_id = 'sensor2'
-    certificate_file = 'rsa_cert.pem' # pem file
+    certificate_file = 'rsa_cert.pem'  # pem file
     #create_device(service_account_json, project_id, cloud_region, registry_id,device_id,certificate_file)
