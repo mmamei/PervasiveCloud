@@ -1,3 +1,4 @@
+#pip install opencv-python
 import cv2 as cv
 import base64
 import json
@@ -18,8 +19,8 @@ while True:
     cv.imshow('frame', frame)
 
     #save locally
-    #cv.imwrite(f'tmp/frame{i}.jpg', frame)
-    #i += 1
+    cv.imwrite(f'tmp/frame{i}.jpg', frame)
+    i += 1
 
     #send via post
     now = datetime.now()
@@ -29,8 +30,7 @@ while True:
         _, encimg = cv.imencode(".png ", frame)
         img_byte = base64.b64encode(encimg).decode("utf-8")
         img_json = json.dumps({'image': img_byte}).encode('utf-8')
-        #response = requests.post('https://localhost:8080/upload', data=img_json, verify=False)
-        response = requests.post('https://localhost:8080/face', data=img_json, verify=False)
+        response = requests.post('http://localhost:8080/face', data=img_json, verify=False)
         last_sent = current_time
 
 

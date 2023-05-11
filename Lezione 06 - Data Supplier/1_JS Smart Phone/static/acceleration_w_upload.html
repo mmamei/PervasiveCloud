@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
@@ -11,8 +12,8 @@
             i = sensor.x.toFixed(2)
             j = sensor.y.toFixed(2)
             k = sensor.z.toFixed(2)
-            $("#output").html(i+"<br>"+j+"<br>"+k+"<br>")
-            $.post("/upload_data",{'data':JSON},
+            $("#output").html(i+"-<br>"+j+"<br>"+k+"<br>")
+            $.post("/upload_data",{'i':i,'j':j,'k':k},
                 function(data,status){
                 })
           }

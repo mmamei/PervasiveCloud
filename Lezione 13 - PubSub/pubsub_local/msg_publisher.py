@@ -1,7 +1,7 @@
 from google.cloud import pubsub_v1
 from secret import project_id,topic_name
 from google.auth import jwt
-import  json
+import json
 
 service_account_info = json.load(open("credentials.json"))
 audience = "https://pubsub.googleapis.com/google.pubsub.v1.Publisher"

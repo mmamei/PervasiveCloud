@@ -22,7 +22,6 @@ def main():
 
 @app.route('/upload',methods=['POST'])
 def upload():
-
     data = request.data.decode('utf-8')
     data_json = json.loads(data)
     image = data_json['image']
@@ -31,7 +30,7 @@ def upload():
     img = cv.imdecode(data_np, 1)
     now = datetime.now()
     current_time = now.strftime("%H_%M_%S")
-    cv.imwrite(f'tmp/test_{current_time}.png', img)
+    cv.imwrite(f'img/test_{current_time}.png', img)
     return 'saved'
 
 
@@ -58,5 +57,5 @@ def face():
     return 'saved'
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True, ssl_context='adhoc')
+    app.run(host='0.0.0.0', port=8080, debug=True)
 

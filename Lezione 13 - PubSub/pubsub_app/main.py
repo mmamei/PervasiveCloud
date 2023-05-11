@@ -21,7 +21,7 @@ def pubsub_write():
 @app.route('/pubsub/push',methods=['POST'])
 def pubsub_push():
     print('ricevuto payload',flush=True)
-    dict = loads(request.data.decode('utf-8'))
+    dict = loads(request.data.decode('utf-8')) # deserializzazione
     print(dict,flush=True)
     msg = b64decode(dict['message']['data']).decode('utf-8')
     print(msg)

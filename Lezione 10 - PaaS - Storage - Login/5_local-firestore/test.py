@@ -6,7 +6,7 @@ coll = 'sensors2'
 
 def print_coll():
     print('Print collection')
-    for doc in db.collection(coll).stream():
+    for doc in db.collection(coll).stream(): # select * from sensor2
         print(f'{doc.id} --> {doc.to_dict()}')
 
 

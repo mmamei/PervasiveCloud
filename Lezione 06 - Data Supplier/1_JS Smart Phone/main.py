@@ -6,6 +6,7 @@ import json
 
 
 # requires pyopenssl
+# pip install pyopenssl
 
 app = Flask(__name__)
 
@@ -21,9 +22,9 @@ def upload_data_buffer():
 
 @app.route('/upload_data',methods=['POST'])
 def upload_data():
-    i = request.form.get("i")
-    j = request.form.get("j")
-    k = request.form.get("k")
+    i = request.values['i']
+    j = request.values['j']
+    k = request.values['k']
     print(i,j,k)
 
     return 'saved'

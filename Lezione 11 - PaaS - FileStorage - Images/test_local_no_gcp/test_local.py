@@ -1,5 +1,5 @@
 import requests
-url = ' http://155.185.81.249:8080/upload'
+url = ' http://localhost:8080/upload'
 files = {'file': open('test.jpg','rb')}
 values = {'key1':'value1','key2':'value2'}
 
