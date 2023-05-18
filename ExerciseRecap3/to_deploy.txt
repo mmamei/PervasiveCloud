@@ -1,0 +1,4 @@
+
+
+gcloud functions deploy save_data_2_bq --region europe-west1 --runtime python37 --trigger-http --allow-unauthenticated
+
