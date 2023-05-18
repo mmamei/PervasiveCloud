@@ -87,8 +87,8 @@ def insert3(project_id,dataset_id,table_id):
                 print("Encountered errors while inserting rows: {}".format(errors))
 
 
-def query():
-    query = f'SELECT * FROM jssensors.test1.table2 LIMIT 100'
+def query(project_id,db_id,table):
+    query = f'SELECT * FROM {project_id}.{db_id}.{table} LIMIT 100'
     client = bigquery.Client.from_service_account_json('credentials.json')
     query_job = client.query(query)
     for row in query_job:
@@ -99,11 +99,11 @@ def query():
 
 
 if __name__ == '__main__':
-    project_id = 'jssensors'
+    project_id = 'mamei-test2-382313'
     region = 'europe-west1'
     db_id = 'test1'
     table = 'table2'
     #create_dataset(project_id,db_id,region)
     #create_table(project_id,db_id,table)
     #insert3(project_id, db_id, table)
-    query()
+    query(project_id,db_id,table)

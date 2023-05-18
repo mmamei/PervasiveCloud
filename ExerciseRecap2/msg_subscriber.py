@@ -22,21 +22,23 @@ credentials = jwt.Credentials.from_service_account_info(
 )
 publisher = pubsub_v1.PublisherClient(credentials=credentials)
 topic_path = subscriber.topic_path(project_id, topic_name)
+'''
 try:
     topic = publisher.create_topic(request={"name": topic_path})
     print(f"Created topic: {topic.name}")
 except Exception as e:
     print(e)
-
+'''
 subscription_name = 'pubsub2'
 subscription_path = subscriber.subscription_path(project_id,subscription_name)
 print(subscription_path)
 # create subscription
+'''
 try:
     subscriber.create_subscription(name=subscription_path, topic=topic_path)
 except Exception as e:
     print(e)
-
+'''
 
 img = np.zeros((240, 320, 3), np.uint8)
 
@@ -54,14 +56,13 @@ def callback(msg):
     name = str(int(time.time()))
     cv.imwrite('test.jpg', img)
 
-
     # bucket = client.bucket('upload-mamei-1')
     source_file_name = 'test.jpg'
     destination_blob_name = f'{name}.jpg'
     blob = bucket.blob(destination_blob_name)
     blob.upload_from_filename(source_file_name)
+    #blob.upload_from_string(img)
     print("File {} uploaded to {}.".format(source_file_name, destination_blob_name))
-
     msg.ack()
 
 streaming_pull = subscriber.subscribe(subscription_path,callback=callback)

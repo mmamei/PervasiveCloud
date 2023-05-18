@@ -1,0 +1,7 @@
+
+# the function must be in main.py
+# must enable billing
+# must enable cloud build
+
+gcloud functions deploy save_video --region europe-west1 --runtime python37 --trigger-topic video-topic
+

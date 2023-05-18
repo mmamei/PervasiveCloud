@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       function initSensor() {
-           url = 'https://europe-west1-jssensors.cloudfunctions.net/save_data'
+           url = 'https://europe-west1-mamei-test2-382313.cloudfunctions.net/save_data'
            var currentdate = new Date();
            dati = {'time':currentdate,'value':[45,45]}
            console.log(url+"?data="+JSON.stringify(dati))
