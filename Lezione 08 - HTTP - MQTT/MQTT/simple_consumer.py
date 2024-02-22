@@ -20,12 +20,13 @@ def on_disconnect(client, userdata, rc):
 
 # Define a callback method to receive asynchronous messages
 def on_message(client, userdata, message):
-    print("\n##########################################################")
-    print("message received: ", str(message.payload.decode("utf-8")))
-    print("message topic=", message.topic)
-    print("message qos=", message.qos)
-    print("message retain flag=", message.retain)
-    print("##########################################################")
+    print(message,userdata)
+    #print("\n##########################################################")
+    #print("message received: ", str(message.payload.decode("utf-8")))
+    #print("message topic=", message.topic)
+    #print("message qos=", message.qos)
+    #print("message retain flag=", message.retain)
+    #print("##########################################################")
 
 
 # Configuration variables
@@ -40,7 +41,7 @@ client_id = "clientId0002-Consumer"
 broker_ip = 'broker.emqx.io'
 broker_port = 1883
 
-default_topic = "/sensor/temperature"
+default_topic = "/stm/#"
 
 # Create a new MQTT Client
 mqtt_client = mqtt.Client(client_id)

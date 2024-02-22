@@ -1,0 +1,16 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#btn').click(function(){
+        txt = $('#in1').val()
+        console.log(txt)
+        $("#d1").html(txt)
+    })
+})
+</script>
+<div id="d1"></div>
+<input type="text" id="in1"><br>
+<button id="btn">Run</button>
+</html>
+
