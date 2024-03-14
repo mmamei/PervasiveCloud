@@ -11,6 +11,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#submit').click(function(){
+				n = $('#name').val()
+				p = $('#password').val()
+				//console.log(n+" "+p)
+				if (n == 'marco' && p == 'mamei')
+					window.location='map.html'
+				else
+					$('#output').html('Loging errato')
+				})
+			})
+		</script>
 	</head>
 	<body class="is-preload">
 
@@ -58,7 +72,8 @@
 						<div class="inner">
 
 							<section>
-								<form method="post" action="map.html">
+								<div id="output"></div>
+								<!-- <form method="post" action="map.html"> -->
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
@@ -70,10 +85,10 @@
 										</div>
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Login" class="primary" /></li>
+										<li><input id="submit" type="submit" value="Login" class="primary" /></li>
 										<li><input type="reset" value="Clear" /></li>
 									</ul>
-								</form>
+								<!-- </form> -->
 							</section>
 
 						</div>

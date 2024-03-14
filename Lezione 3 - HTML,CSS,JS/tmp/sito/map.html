@@ -10,6 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"/>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -48,7 +49,7 @@
 									<header class="major">
 										<h1>Mappa Spostamenti</h1>
 									</header>
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+									<div id="mapid" style="width: 600px; height: 400px;"></div>
 									</div>
 							</section>
 					</div>
@@ -78,6 +79,74 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		 	<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+			<script type="text/javascript">
+
+
+				function d7(x) {
+    				return x/10000000
+				}
+
+				url = "https://raw.githubusercontent.com/mmamei/PervasiveCloud/master/Lezione%2003%20-%20Python/data.json"
+				$.get(url,function(data, status){
+				 	data = JSON.parse(data)
+					//console.log(data)
+
+					segm = []
+					for(x of data['timelineObjects']) {
+						if('activitySegment' in x && 'distance' in x['activitySegment']) {
+							x = x['activitySegment']
+							tmp = x['duration']['startTimestamp'].split('T')
+							day = tmp[0]
+							start_time = tmp[1]
+							start_time = start_time.split('.')[0]
+							end_time = x['duration']['endTimestamp'].split('T')[1].split('.')[0]
+							path = [[d7(x['startLocation']['latitudeE7']),
+									 d7(x['startLocation']['longitudeE7'])]]
+							if ('waypointPath'in x) {
+								for(p of x['waypointPath']['waypoints']) {
+									path.push([d7(p['latE7']),d7(p['lngE7'])])
+								}
+							}
+							path.push([d7(x['endLocation']['latitudeE7']),
+										 d7(x['endLocation']['longitudeE7'])])
+							segm.push({
+								'day':day,
+								'start time':start_time,
+								'end time': end_time,
+								'distance': x['distance'],
+								'path': path
+							})
+						}
+					}
+					console.log(segm)
+
+					function convert_line(path) {
+						line = []
+						for(p of path)
+							line.push(convert_point(p))
+						return line
+					}
+					function convert_point(p) {
+						return  new L.LatLng(p[0],p[1])
+					}
+
+					lat_center = segm[0]['path'][0][0]
+					lon_center = segm[0]['path'][0][1]
+					var map = L.map('mapid').setView([lat_center, lon_center], 13);
+					L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+					colors = ['red','blue','yellow','green','black']
+					i = 0
+
+					for (s of segm) {
+						new L.Polyline(convert_line(s['path']), {color: colors[i],weight: 3,opacity: 0.5,smoothFactor: 1}).addTo(map)
+						i = (i + 1) % colors.length
+					}
+
+				})
+			</script>
 
 	</body>
 </html>

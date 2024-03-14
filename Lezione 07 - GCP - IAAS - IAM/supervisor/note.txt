@@ -1,0 +1,13 @@
+sudo apt-get update
+
+sudo apt-get install supervisor
+
+[edit app.conf file to fix paths]
+
+nano app.conf
+
+sudo cp app.conf /etc/supervisor/conf.d/
+
+mkdir log
+
+sudo service supervisor restart
