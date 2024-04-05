@@ -1,7 +1,7 @@
 import cv2
 
 # define a video capture object
-vid = cv2.VideoCapture(1)
+vid = cv2.VideoCapture(0)
 
 while (True):
 

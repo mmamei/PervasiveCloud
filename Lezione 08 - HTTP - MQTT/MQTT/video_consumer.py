@@ -21,6 +21,7 @@ def on_connect(client, userdata, flags, rc):
     print("Subscribed to: " + default_topic)
 
 def on_message(client, userdata, message):
+    print(message, userdata)
     global img
     pre_des = time.time()
     dict = json.loads(message.payload)
@@ -47,7 +48,7 @@ mqtt_client.on_message = on_message
 mqtt_client.on_connect = on_connect
 
 # Connect to the target MQTT Broker
-mqtt_client.username_pw_set(username=user, password=passw)
+#mqtt_client.username_pw_set(username=user, password=passw)
 mqtt_client.connect(broker_ip, broker_port)
 
 # Blocking call that processes network traffic, dispatches callbacks and

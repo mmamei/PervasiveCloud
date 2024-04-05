@@ -1,12 +1,14 @@
-# For this example we rely on the Paho MQTT Library for Python
-# You can install it through the following command: pip install paho-mqtt
+# For this example we rely on the Paho MQTT Library
+# for Python
+# You can install it through the following command:
+# pip install paho-mqtt
 
 import paho.mqtt.client as mqtt
 import time
 
 
 # The callback for when the client receives a CONNACK response from the server.
-def on_connect(client, userdata, flags, rc):
+def marco_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
 
 #def on_publish(mqttc, obj, mid):
@@ -27,11 +29,11 @@ client_id = "clientId0001-Producer"
 broker_ip = 'broker.emqx.io'
 broker_port = 1883
 
-default_topic = "/sensor/temperature"
+default_topic = "/stm/1"
 
 
 mqtt_client = mqtt.Client(client_id)
-mqtt_client.on_connect = on_connect
+mqtt_client.on_connect = marco_connect
 #mqtt_client.on_publish = on_publish
 
 print("Connecting to "+ broker_ip + " port: " + str(broker_port))

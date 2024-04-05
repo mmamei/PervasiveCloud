@@ -12,5 +12,4 @@ with open('CleanData_PM10.csv') as f:
         time.sleep(5)
 
 
-
 print('done')
