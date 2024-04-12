@@ -24,7 +24,6 @@ class User(UserMixin):
         super().__init__()
         self.id = username
         self.username = username
-        self.par = {}
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secret_key
@@ -44,7 +43,6 @@ def load_user(username):
     if username in usersdb:
         return User(username)
     return None
-
 
 
 @app.route('/')
@@ -67,9 +65,9 @@ def login():
         return redirect(url_for('/main'))
     username = request.values['u']
     password = request.values['p']
+    next_page = request.values['next']
     if username in usersdb and password == usersdb[username]:
         login_user(User(username))
-        next_page = request.args.get('next')
         if not next_page:
             next_page = '/main'
         return redirect(next_page)

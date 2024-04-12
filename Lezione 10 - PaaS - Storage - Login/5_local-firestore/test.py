@@ -1,6 +1,6 @@
 from google.cloud import firestore
 
-db = firestore.Client.from_service_account_json('credentials.json')
+db = firestore.Client.from_service_account_json('credentials.json', database='test')
 
 coll = 'sensors2'
 

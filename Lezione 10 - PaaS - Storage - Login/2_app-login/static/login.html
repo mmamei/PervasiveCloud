@@ -3,8 +3,16 @@
 <form action="/login" method="post">
     username <input type="text" name="u"><br>
     password <input type="password" name="p"><br>
-    next <input type="text" name="next"><br>
+    <input type="hidden" id="next" name="next">
     <input type="submit">
 </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+    const searchParams = new URLSearchParams(window.location.search);
+    next = searchParams.get('next')
+    $("#next").val(next)
+
+
+</script>
 </body>
 </html>

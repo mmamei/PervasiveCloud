@@ -5,8 +5,6 @@ from secret import secret_key
 usersdb = {
     'marco':'mamei',
     'matteo':'mamei'
-
-
 }
 
 app = Flask(__name__)
