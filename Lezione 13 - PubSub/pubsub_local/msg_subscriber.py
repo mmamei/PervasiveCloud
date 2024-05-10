@@ -1,7 +1,8 @@
 from google.cloud import pubsub_v1
-from secret import project_id,topic_name
+from secret import project_id
 from google.auth import jwt
 import  json
+from topic_subscription_creator import create_subscription
 
 service_account_info = json.load(open("credentials.json"))
 audience = "https://pubsub.googleapis.com/google.pubsub.v1.Subscriber"
@@ -9,28 +10,7 @@ credentials = jwt.Credentials.from_service_account_info(
     service_account_info, audience=audience
 )
 subscriber = pubsub_v1.SubscriberClient(credentials=credentials)
-
-service_account_info = json.load(open("credentials.json"))
-audience = "https://pubsub.googleapis.com/google.pubsub.v1.Publisher"
-credentials = jwt.Credentials.from_service_account_info(
-    service_account_info, audience=audience
-)
-publisher = pubsub_v1.PublisherClient(credentials=credentials)
-topic_path = subscriber.topic_path(project_id, topic_name)
-try:
-    topic = publisher.create_topic(request={"name": topic_path})
-    print(f"Created topic: {topic.name}")
-except Exception as e:
-    print(e)
-
-subscription_name = 'pubsub1'
-subscription_path = subscriber.subscription_path(project_id,subscription_name)
-print(subscription_path)
-# create subscription
-try:
-    subscriber.create_subscription(name=subscription_path, topic=topic_path)
-except Exception as e:
-    print(e)
+subscription_path = create_subscription('pubsub2','test123')
 
 def callback(msg):
     print(f'messaggio ricevuto: {msg}')
@@ -38,7 +18,12 @@ def callback(msg):
 
 streaming_pull = subscriber.subscribe(subscription_path,callback=callback)
 
+
+print('start_reading')
+
 streaming_pull.result()
+
+print('end')
 
 #try:
 #    streaming_pull.result(timeout=10)
