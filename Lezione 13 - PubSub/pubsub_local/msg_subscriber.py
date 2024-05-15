@@ -10,7 +10,7 @@ credentials = jwt.Credentials.from_service_account_info(
     service_account_info, audience=audience
 )
 subscriber = pubsub_v1.SubscriberClient(credentials=credentials)
-subscription_path = create_subscription('pubsub2','test123')
+subscription_path = create_subscription('pubsub3','test123')
 
 def callback(msg):
     print(f'messaggio ricevuto: {msg}')

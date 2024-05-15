@@ -3,7 +3,8 @@
 # must enable billing
 # must enable cloud build
 
-gcloud functions deploy hello_pubsub --region europe-west1 --runtime python37 --trigger-topic test-topic
+gcloud functions deploy hello_http --region europe-west8 --runtime python39 --trigger-topic test-topic --gen2
+
 
 # send an event via console to test
 gcloud pubsub topics publish test-topic --attribute=key1=val1,key2=val2 --message="test di pubblicazione"

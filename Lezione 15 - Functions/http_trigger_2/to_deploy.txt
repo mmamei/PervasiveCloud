@@ -3,7 +3,7 @@
 # must enable billing
 # must enable cloud build
 
-gcloud functions deploy index --region europe-west1 --runtime python37 --trigger-http --allow-unauthenticated
+gcloud functions deploy hello_http --region europe-west8 --runtime python39 --trigger-http --allow-unauthenticated --gen2
 
 # the commad returns information about the deployed function.
 # In particular the url of the function:

@@ -1,2 +1,1 @@
-google-cloud-firestore
 functions-framework==3.*

@@ -1,1 +1,2 @@
 flask
+functions-framework==3.*
