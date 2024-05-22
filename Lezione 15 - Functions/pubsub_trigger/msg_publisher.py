@@ -16,5 +16,5 @@ except Exception as e:
     print(e)
 
 
-r = publisher.publish(topic_path,b'message 1',key1='val1',key2='val2')
+r = publisher.publish(topic_path,b'message 15567',key1='val1',key2='val2')
 print(r.result())

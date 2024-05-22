@@ -99,9 +99,9 @@ def query(project_id,db_id,table):
 
 
 if __name__ == '__main__':
-    project_id = 'mamei-test2-382313'
-    region = 'europe-west1'
-    db_id = 'test1'
+    project_id = 'plcoud2024'
+    region = 'europe-west8'
+    db_id = 'test2'
     table = 'table2'
     #create_dataset(project_id,db_id,region)
     #create_table(project_id,db_id,table)
