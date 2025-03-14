@@ -1,4 +1,4 @@
-# library python-telegram-bot
+# library python-telegram-bot==13.15
 
 # chat with BotFather to create a new bot
 # obtain the bot_token
